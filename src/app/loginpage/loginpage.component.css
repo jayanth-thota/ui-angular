@@ -1,0 +1,15 @@
+
+body{
+
+  background-image: url("../images/111.jpg");
+
+  height: 900px;
+
+  width: 1600px;
+
+  background-size: cover;
+
+}
+*{color: white;
+
+}

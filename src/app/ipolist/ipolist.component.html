@@ -1,0 +1,83 @@
+<body>
+  
+
+  <button type="button" class="btn btn-info btn-lg "><a routerLink="/admin">
+          
+    <h5 style="color: white;">BACK</h5></a>
+  </button>
+
+
+<br/>
+<br/>
+<br/>
+
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-7">
+
+
+
+
+<table class="table table-hover table-sm">
+
+    <thead class="thead-light">
+  
+      <tr>
+  
+        <th>Id</th>
+  
+        <th>Company Name</th>
+  
+        <th>Stock Exchange</th>
+  
+        <th>Price per share</th>
+  
+        <th>Total number of shares</th>
+  
+        <th>open date time</th>
+  
+        <th>Remarks</th>
+        <th>Modify</th>
+        <th>Delete</th>
+  
+    
+  
+  
+  
+      </tr>
+  
+    </thead>
+  
+    <tbody>
+  
+       <tr *ngFor="let ipo of ipolist ">
+  
+        <td>{{ipo.id}}</td>
+  
+        <td>{{ipo.companyName}}</td>
+  
+        <td>{{ipo.stockExchange}}</td>
+  
+        <td>{{ipo.pricePerShare}}</td>
+  
+        <td>{{ipo.totalNoOfShares}}</td>
+  
+        <td>{{ipo.openDateTime}}</td>
+  
+        <td>{{ipo. remarks}}</td>
+        
+        <td><button (click)="updateIpo(ipo)" class="btn btn-primary">Update</button></td>
+        <td><button (click)="deleteIpo(ipo)" class="btn btn-danger">Delete</button></td>
+       
+       </tr>
+  
+    </tbody><br>
+   
+    <button type="button" class="btn btn-info btn-lg "><a routerLink="/createipo">
+          
+      <h5 style="color: white;">ADD</h5></a>
+    </button>
+  </table> 
+    </div>
+</div>
+</body>

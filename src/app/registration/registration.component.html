@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+
+  <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+    
+    .input-container {
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    
+    .icon {
+      padding: 10px;
+      background: black;
+      color: white;
+      min-width: 50px;
+      text-align: center;
+    }
+    
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      outline: none;
+    }
+    
+    .input-field:focus {
+      border: 2px solid dodgerblue;
+    }
+  </style>
+  
+  
+  
+  
+  
+  
+<body>
+
+
+
+  <div class="row">
+
+    <div class="col-sm-6"></div>
+
+    <div class="col-sm-4">
+      <div [hidden]="submitted">
+
+     
+        
+        <form [formGroup]="usersaveform" #saveUser1 (ngSubmit)="saveUser(saveUser1)">
+          <br>
+          <h3 style="text-align: center;"></h3>
+          <h3 style="text-align: center;">Sign-Up</h3><br>
+          <div class="form-group">
+
+            <label for="id"><h4>ID</h4></label>
+            <div class="input-container">
+              <i class="fa fa-id-card icon"></i>
+
+            <input type="number" class="form-control" formControlName="id" data-toggle="tooltip"
+              data-placement="right" title="Enter ID">
+            </div>
+            <div class="alert alert-danger"
+              *ngIf="(usersaveform.get('id').touched) && (usersaveform.get('id').invalid)"
+              style="margin-top: 5px;">
+
+              <span *ngIf="usersaveform.get('id').errors.required">id is required</span>
+
+              <span *ngIf="usersaveform.get('id').errors.minlength">
+
+                MinLength Error
+
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="name"><h4>USERNAME</h4></label>
+            <div class="input-container">
+              <i class="fa fa-user icon"></i>
+
+            <input type="text" class="form-control" formControlName="userName" data-toggle="tooltip"
+              data-placement="right" title="Enter User Name">
+            </div>
+            <div class="alert alert-danger"
+              *ngIf="(usersaveform.get('userName').touched) && (usersaveform.get('userName').invalid)"
+              style="margin-top: 5px;">
+
+              <span *ngIf="usersaveform.get('userName').errors.required">username is required</span>
+
+              <span *ngIf="usersaveform.get('userName').errors.minlength">
+
+                MinLength Error
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="form-group">
+
+            <label for="name"><h4>Password</h4></label>
+            <div class="input-container">
+              <i class="fa fa-key icon"></i>
+
+            <input type="password" class="form-control" formControlName="password" data-toggle="tooltip"
+              data-placement="right" title="Enter Password">
+            </div>
+
+            <div class="alert alert-danger"
+              *ngIf="(usersaveform.get('password').touched) && (usersaveform.get('password').invalid)"
+              style="margin-top: 5px;">
+
+              <span *ngIf="usersaveform.get('password').errors.required">password is required</span>
+
+              <span *ngIf="usersaveform.get('password').errors.minlength">
+
+                MinLength Error
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+
+
+                    <div class="form-group">
+
+            <label for="name"><h4>Email</h4></label>
+            <div class="input-container">
+              <i class="fa fa-envelope icon"></i>
+
+            <input type="text" class="form-control" formControlName="email" data-toggle="tooltip" data-placement="right"
+              title="Enter User Email">
+            </div>
+            <div class="alert alert-danger"
+              *ngIf="(usersaveform.get('email').touched) && (usersaveform.get('email').invalid)"
+              style="margin-top: 5px;">
+
+              <span *ngIf="usersaveform.get('email').errors.required">User Email is Required</span>
+
+              <span *ngIf="usersaveform.get('email').errors.email">
+
+                Invalid Email Format
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+         
+          <div class="form-group">
+
+            <label for="name"><h4>Contact</h4></label>
+            <div class="input-container">
+              <i class="fa fa-phone icon"></i>
+
+            <input type="text" class="form-control" formControlName="contact" pattern="^\d{10}$"  maxlength="10" data-toggle="tooltip"
+              data-placement="right" title="Enter Contact Number">
+            </div>
+
+            <div class="alert alert-danger"
+              *ngIf="(usersaveform.get('contact').touched) && (usersaveform.get('contact').invalid)"
+              style="margin-top: 5px;">
+
+              <span *ngIf="usersaveform.get('contact').errors.required">Contact is required</span>
+
+              <span *ngIf="usersaveform.get('contact').errors.minlength">
+
+                MinLength Error
+
+              </span>
+
+            </div>
+
+          </div>
+             <div class="form-group">  
+           
+                  
+              <label for="profileImage"><h4>profileimage</h4></label>  
+              <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input formControlName="profileImage" class="form-control" type="file" (change)="selectFile($event)">   
+            </div>
+          </div>  
+
+
+
+         
+
+
+
+
+          <button type="submit" class="btn btn-success" [disabled]=!usersaveform.valid>Submit</button>
+
+
+        </form>
+      </div>  
+
+      </div>
+
+    
+
+    
+
+  </div>
+
+
+
+</body>
+
+</html>
